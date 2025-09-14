@@ -4987,3 +4987,22 @@ td:last-child {
         line-height: var(--vspace-0_75);
     }
 }
+/* === Clean fixes for header + footer logos === */
+
+/* Header logo: keep visible + centered */
+.header-logo img {
+  max-height: var(--header-height); /* never taller than header */
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto; /* center horizontally */
+}
+
+/* Footer logo: keep smaller than social icons */
+footer img {
+  max-width: 100px;  /* adjust until it lines up with icons */
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* center above icons */
+}
