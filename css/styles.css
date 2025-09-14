@@ -5088,3 +5088,7 @@ footer img {
   #contact .contact-form textarea{ padding:16px 20px; font-size:1.2rem; }
   #contact .contact-form label{ font-size:1.2rem; }
 }
+/* Hide section numbers globally */
+.section-header::before {
+  content: none !important;
+}
