@@ -4625,7 +4625,7 @@ td:last-child {
  * ------------------------------------------------------------------- */
 .s-footer {
     --bottom-padding   : var(--vspace-2_5);
-    --footer-logo-width: 15rem;
+    --footer-logo-width: 16rem;
     
     padding-bottom     : var(--bottom-padding);
 }
@@ -4986,18 +4986,4 @@ td:last-child {
         font-size  : var(--text-sm);
         line-height: var(--vspace-0_75);
     }
-}
-
-.s-header { /* uses your existing var on the image rule */
-  --logo-width: clamp(5.2rem, 6.5vw, 8.4rem); /* default was 10.8rem  */
-}
-
-/* Make it a touch smaller when sticky so content breathes */
-.s-header.sticky {
-  --logo-width: clamp(5rem, 6vw, 7.6rem);
-}
-
-/* Footer logo: a bit smaller for hierarchy */
-.s-footer { /* feeds your .s-footer__logo img rule */
-  --footer-logo-width: clamp(4.4rem, 5.5vw, 7.2rem); /* default was 10rem  */
 }
