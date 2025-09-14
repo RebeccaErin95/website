@@ -5007,74 +5007,84 @@ footer img {
   margin: 0 auto;    /* center above icons */
 }
 
-/* Center the form on the page */
-.contact-form-wrap{
+/* === Contact form overrides (scoped to #contact) === */
+#contact .contact-form-wrap{
   display:flex;
   justify-content:center;
   padding:clamp(24px,4vw,56px) 0;
   min-height:60vh;
 }
 
-/* Card look + width */
-.contact-form{
+#contact .contact-form{
   width:75%;
-  max-width:1000px;              /* caps width on very wide screens */
-  background:#111;               /* match subscribe box */
-  color:#fff;
+  max-width:1000px;
+  margin:0 auto;
+  background:#111;                  /* match subscribe box look */
+  color:var(--color-text, #fff);
   padding:clamp(20px,3vw,36px);
   border-radius:14px;
   box-shadow:0 8px 30px rgba(0,0,0,.25);
 }
 
-/* Two-column layout that collapses on mobile */
-.contact-form .form-grid{
+#contact .contact-form .form-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:16px 20px;
 }
-.contact-form .field--full{ grid-column:1 / -1; }
+#contact .contact-form .field--full{ grid-column:1 / -1; }
 
-/* Labels + inputs */
-.contact-form label{
+#contact .contact-form label{
   display:block;
-  margin:0 0 6px;
+  margin:0 0 8px;
   font-weight:600;
-  font-size:1.5rem;
+  font-size:1.4rem;                 /* larger label text */
   color:#e9e9e9;
 }
-.contact-form input,
-.contact-form select,
-.contact-form textarea{
+
+/* inputs & textarea (override theme resets) */
+#contact .contact-form input,
+#contact .contact-form select,
+#contact .contact-form textarea{
+  -webkit-appearance:none;
+  appearance:none;
   width:100%;
-  padding:12px 16px;
-  border-radius:25px;            /* pill shape */
+  padding:16px 20px;                /* bigger tap targets */
+  border-radius:25px;               /* pill shape */
   border:1px solid #232323;
   background:#1c1c1c;
   color:#fff;
-  font-size:1.5rem;
+  font-size:1.4rem;                 /* larger field text */
+  line-height:1.5;
   outline:none;
 }
-.contact-form textarea{ border-radius:16px; resize:vertical; min-height:140px; }
+#contact .contact-form input::placeholder,
+#contact .contact-form textarea::placeholder{ color:#9aa0a6; }
+#contact .contact-form input[type="date"]{ color-scheme:dark; }
+#contact .contact-form textarea{ border-radius:16px; min-height:140px; resize:vertical; }
 
-/* Button */
-.contact-form button{
+/* submit button */
+#contact .contact-form button{
   grid-column:1 / -1;
-  padding:12px 18px;
+  padding:14px 18px;
   border:none;
   border-radius:25px;
-  background:#2f5e6e;            /* match your subscribe button color */
-  color:#fff; font-weight:700; font-size:1.5rem;
-  cursor:pointer; transition:transform .06s ease, opacity .2s ease;
+  background:var(--color-bg-accent, #2f5e6e);
+  color:#fff;
+  font-weight:700;
+  font-size:1.5rem;
+  cursor:pointer;
+  transition:transform .06s ease, opacity .2s ease;
 }
-.contact-form button:hover{ transform:translateY(-1px); opacity:.95; }
+#contact .contact-form button:hover{ transform:translateY(-1px); opacity:.95; }
 
-/* Mobile: full width + single column + bigger tap targets */
+/* responsive */
 @media (max-width: 900px){
-  .contact-form{ width:92%; }
+  #contact .contact-form{ width:92%; }
 }
 @media (max-width: 640px){
-  .contact-form .form-grid{ grid-template-columns:1fr; }
-  .contact-form input,
-  .contact-form select,
-  .contact-form textarea{ padding:14px 18px; }
+  #contact .contact-form .form-grid{ grid-template-columns:1fr; }
+  #contact .contact-form input,
+  #contact .contact-form select,
+  #contact .contact-form textarea{ padding:16px 20px; font-size:1.2rem; }
+  #contact .contact-form label{ font-size:1.2rem; }
 }
