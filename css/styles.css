@@ -5140,3 +5140,49 @@ footer img {
     pointer-events: auto;
   }
 }
+/* --- MENU PREVIEW: base --- */
+.menu-preview {
+  display: none;              /* hidden by default */
+  border-radius: 14px;
+  height: auto;
+}
+
+/* --- DESKTOP/TABLET: show on hover/focus --- */
+@media (min-width: 601px) {
+  /* keep your existing layout; only control visibility */
+  .menu-list__item:hover .menu-preview,
+  .menu-list__item:focus-within .menu-preview {
+    display: block;
+  }
+
+  /* optional: size & spacing on larger screens */
+  .menu-list__item .menu-preview {
+    max-width: 180px;
+    margin-left: var(--gutter);
+  }
+}
+
+/* --- PHONE: put photo under the price, always visible --- */
+@media (max-width: 600px) {
+  .menu-list__item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "desc  price"
+      "desc  image";
+    column-gap: var(--gutter);
+    align-items: start;
+  }
+
+  .menu-list__item-desc  { grid-area: desc;  padding-right: var(--gutter); }
+  .menu-list__item-price { grid-area: price; justify-self: end; text-align: right; }
+
+  .menu-list__item .menu-preview {
+    grid-area: image;
+    justify-self: end;
+    display: block !important;   /* always visible on phones */
+    max-width: 120px;            /* tweak as needed */
+    margin: 0.35rem 0 0.75rem;
+  }
+}
+
