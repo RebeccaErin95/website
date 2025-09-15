@@ -4155,7 +4155,7 @@ td:last-child {
 
 .tab-nav__list a::before {
     display          : block;
-    content          : counter(ctr, decimal-leading-zero) ".";
+    content          : "";
     font-size        : var(--text-xs);
     margin-right     : var(--vspace-0_625);
     color            : var(--color-text-light);
@@ -5091,4 +5091,52 @@ footer img {
 /* Hide section numbers globally */
 .section-header::before {
   content: none !important;
+}
+
+/* Floating/inline preview for menu-list items */
+.menu-list__item { position: relative; }
+
+/* Default (desktop hover): hidden until shown */
+.menu-preview {
+  position: absolute;
+  left: 0;
+  top: 100%;                 /* appears below; change to bottom:100% to show above */
+  margin-top: 10px;
+  width: min(320px, 60vw);
+  max-height: 40vh;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-medium);
+  background: var(--color-bg-neutral);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity .25s var(--ease-smooth), transform .25s var(--ease-smooth);
+  pointer-events: none;
+  z-index: 40;
+}
+
+/* Visible state (JS toggles this) */
+.menu-preview.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Safety: even if JS fails, hovering the li will show it */
+.menu-list__item:hover .menu-preview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Touch devices: make it inline, full-width, tap-to-toggle */
+@media (hover: none), (pointer: coarse) {
+  .menu-preview {
+    position: static;
+    width: 100%;
+    max-height: none;
+    margin-top: .5rem;
+    opacity: 1;              /* when inserted, it’s visible */
+    transform: none;
+    pointer-events: auto;
+  }
 }

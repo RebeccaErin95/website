@@ -699,3 +699,40 @@
     })();
 
 })(document.documentElement);
+
+// ===============================
+// Menu preview hover/click logic
+// ===============================
+document.addEventListener('DOMContentLoaded', () => {
+  const isTouch = matchMedia('(hover: none), (pointer: coarse)').matches;
+
+  document.querySelectorAll('.menu-list .menu-list__item').forEach(item => {
+    const url = item.getAttribute('data-image');
+    if (!url) return;
+
+    // Create the preview img once per item
+    const img = document.createElement('img');
+    img.className = 'menu-preview';
+    img.alt = (item.querySelector('h4')?.textContent || 'Preview').trim();
+    img.src = url;
+    // Insert after the description, so it visually sits just under the text
+    const desc = item.querySelector('.menu-list__item-desc') || item.firstElementChild;
+    desc.insertAdjacentElement('afterend', img);
+
+    if (isTouch) {
+      // Touch: tap to toggle (no hover)
+      let open = false;
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        open = !open;
+        img.classList.toggle('show', open);
+      });
+    } else {
+      // Desktop: hover/focus to show; leave/blur to hide
+      item.addEventListener('mouseenter', () => img.classList.add('show'));
+      item.addEventListener('mouseleave', () => img.classList.remove('show'));
+      item.addEventListener('focusin',   () => img.classList.add('show'));
+      item.addEventListener('focusout',  () => img.classList.remove('show'));
+    }
+  });
+});
