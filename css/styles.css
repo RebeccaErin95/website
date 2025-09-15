@@ -5186,3 +5186,5 @@ footer img {
   }
 }
 
+/* show zoom cursor on tappable previews */
+.menu-preview { cursor: zoom-in; }

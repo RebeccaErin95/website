@@ -737,3 +737,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+/* Make menu preview images open in a lightbox */
+function enableMenuPreviewLightbox() {
+  document.querySelectorAll('.menu-preview').forEach(img => {
+    // skip if already wrapped
+    if (img.closest('a.glightbox')) return;
+
+    const a = document.createElement('a');
+    a.href = img.currentSrc || img.src;   // open the same file full-size
+    a.className = 'glightbox';
+    a.setAttribute('data-gallery', 'menu-previews');
+
+    img.parentNode.insertBefore(a, img);
+    a.appendChild(img);
+  });
+
+  // (Re)initialize lightbox for these links
+  if (typeof GLightbox === 'function') {
+    GLightbox({ selector: 'a.glightbox' });
+  }
+}
+
+// Run once after the page (and your previews) are ready
+window.addEventListener('load', enableMenuPreviewLightbox);
