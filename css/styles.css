@@ -5187,3 +5187,9 @@ footer img {
 
 /* show zoom cursor on tappable previews */
 .menu-preview { cursor: zoom-in; }
+
+@media screen and (max-width: 600px) {
+  .header-logo img {
+    margin-top: 15px; /* adjust this value until it looks right */
+  }
+}
