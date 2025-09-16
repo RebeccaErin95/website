@@ -5101,7 +5101,6 @@ footer img {
   position: absolute;
   left: 0;
   top: 100%;                 /* appears below; change to bottom:100% to show above */
-  margin-top: 10px;
   width: min(320px, 60vw);
   max-height: 40vh;
   object-fit: cover;
