@@ -807,8 +807,7 @@
 
         <section id="contact" class="container">
             <div class="contact-form-wrap">
-                <form class="contact-form" name="contact" method="POST" data-netlify="true" action="/thank-you.html">
-                    <input type="hidden" name="form-name" value="contact">
+                <form class="contact-form" action="https://formspree.io/f/mqadvaoz" method="POST">
                     <h2 class="u-remove-top" style="margin-bottom:14px;">Contact Us</h2>
 
                     <div class="form-grid">
@@ -859,21 +858,6 @@
 
                         <button type="submit" class="btn btn--primary">Send Message</button>
                     </div>
-                    <div class="form-status">
-                        <p class="success" style="display:none; color:green;">
-                            ✅ Thanks! Your message has been sent.
-                        </p>
-                        <p class="error" style="display:none; color:red;">
-                            ❌ Oops! Something went wrong. Please try again.
-                        </p>
-                    </div>
-
-                    <div data-netlify-recaptcha="true"></div>
-                    <div class="form-status">
-                        <p class="success" style="display:none;">Thanks! Your message has been sent.</p>
-                        <p class="error" style="display:none;">Oops! Something went wrong. Please try again.</p>
-                    </div>
-
                 </form>
             </div>
         </section>
