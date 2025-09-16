@@ -807,7 +807,7 @@
 
         <section id="contact" class="container">
             <div class="contact-form-wrap">
-                <form class="contact-form" action="#" method="post" novalidate>
+                <form class="contact-form" action="https://formspree.io/f/mqadvaoz" method="POST">
                     <h2 class="u-remove-top" style="margin-bottom:14px;">Contact Us</h2>
 
                     <div class="form-grid">
@@ -819,7 +819,7 @@
                         <div class="field">
                             <label for="phone">Phone</label>
                             <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
-                                placeholder="(###) ###-####" pattern="^\+?[0-9\s\-\(\)]{7,}$" required>
+                                placeholder="(###) ###-####" pattern="^\+?[0-9\s\-()]{7,15}$" required>
                         </div>
 
                         <div class="field">
@@ -856,11 +856,12 @@
                                 required></textarea>
                         </div>
 
-                        <button type="submit">Submit</button>
+                        <button type="submit" class="btn btn--primary">Send Message</button>
                     </div>
                 </form>
             </div>
         </section>
+
 
 
 
