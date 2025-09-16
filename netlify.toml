@@ -1,0 +1,26 @@
+[build]
+  publish = "."        # folder to publish, adjust if using /dist or /build
+  command = ""         # no build step if it's pure HTML/CSS/JS
+
+[[plugins]]
+  package = "@netlify/plugin-sitemap" # optional, auto-generate a sitemap
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Netlify Forms setup
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self';"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+
+[[forms]]
+  name = "contact"
+  path = "/index.html"
+  method = "POST"
+  fields = ["name", "phone", "email", "event_type", "event_date", "venue", "message"]
+  success = "/thank-you.html"

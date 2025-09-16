@@ -760,3 +760,33 @@ function enableMenuPreviewLightbox() {
 
 // Run once after the page (and your previews) are ready
 window.addEventListener('load', enableMenuPreviewLightbox);
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form[name='contact']");
+  if (!form) return; // stop if contact form doesn't exist on the page
+
+  const successMsg = document.querySelector(".form-status .success");
+  const errorMsg = document.querySelector(".form-status .error");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.ok) {
+        form.reset();
+        if (successMsg) successMsg.style.display = "block";
+        if (errorMsg) errorMsg.style.display = "none";
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (err) {
+      if (successMsg) successMsg.style.display = "none";
+      if (errorMsg) errorMsg.style.display = "block";
+    }
+  });
+});
