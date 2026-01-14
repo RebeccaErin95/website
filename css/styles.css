@@ -5246,3 +5246,276 @@ footer img {
     gap: 1rem;
   }
 }
+.team-selector {
+    margin-top: 1rem;
+}
+
+.team-toggle {
+    width: 100%;
+    background: var(--color-bg-neutral);
+    color: var(--color-text-bold);
+    padding: 1rem 1.4rem;
+    border-radius: var(--radius-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.team-list {
+    display: none;
+    margin-top: .75rem;
+    background: var(--color-bg-neutral-dark);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-medium);
+}
+
+.team-list li {
+    padding: .9rem 1.4rem;
+    cursor: pointer;
+}
+
+.team-list li:hover {
+    background: var(--color-bg-neutral);
+}
+/* Remove bullets from Meet the Team dropdown */
+.team-list {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.team-list li::marker {
+    content: "";
+}
+.vendor-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.vendor-tab {
+    padding: .6rem 1.4rem;
+    border-radius: 999px;
+    background: var(--color-bg-neutral);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.vendor-tab.active {
+    background: var(--color-bg-primary);
+    color: var(--color-white);
+}
+
+.vendor-grid {
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2.5rem;
+}
+
+.vendor-grid.active {
+    display: grid;
+}
+
+.vendor-tile {
+    background: var(--color-bg-neutral);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    padding-bottom: 1.5rem;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.vendor-tile:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-medium);
+}
+
+.vendor-tile img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.vendor-tile h4 {
+    margin: 1.25rem 1.25rem .5rem;
+}
+
+.vendor-tile p {
+    margin: 0 1.25rem 1rem;
+    color: var(--color-text-light);
+}
+
+.vendor-tile a {
+    margin-left: 1.25rem;
+}
+/* ---------------------------------------------------
+   SECTION SPACING TWEAKS
+--------------------------------------------------- */
+
+/* Reduce space ABOVE Preferred Vendors (closer to Meet So Hype) */
+#menu {
+    margin-top: 3rem;   /* default was effectively larger */
+}
+
+/* Increase space AFTER Preferred Vendors (before Services & Packages) */
+#menu + section {
+    margin-top: 8rem;
+}
+
+/* -------------------------------------------
+   GUIDED SCROLL GALLERY – FULL VERSION
+------------------------------------------- */
+
+.s-gallery {
+    margin-top: 6rem;
+}
+
+.guided-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.guided-item {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.25;
+    transform: translateY(60px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.guided-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.guided-item.dim {
+    opacity: 0.1;
+}
+
+.guided-item img,
+.guided-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+/* LIGHTBOX */
+
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.gallery-lightbox.active {
+    display: flex;
+}
+
+.gallery-lightbox-content img,
+.gallery-lightbox-content video {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: var(--radius-lg);
+}
+
+.gallery-close {
+    position: absolute;
+    top: 2rem;
+    right: 2.5rem;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    font-size: 3rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.gallery-nav.prev {
+    left: 2rem;
+}
+
+.gallery-nav.next {
+    right: 2rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .guided-item {
+        height: 320px;
+    }
+}/* -------------------------------------------
+   GALLERY HOVER ENHANCEMENT
+------------------------------------------- */
+
+.guided-item::after {
+    content: " ";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.guided-item:hover::after {
+    opacity: 1;
+}
+
+/* Subtle lift on hover */
+.guided-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    opacity: 1;
+}
+
+/* Ensure hover always wins visually */
+.guided-item.active {
+    opacity: 1;
+}
+/* -------------------------------------------
+   GALLERY: NO DIMMING BY DEFAULT
+------------------------------------------- */
+
+/* Base state: all images fully visible */
+.guided-item {
+    opacity: 1 !important;
+}
+
+/* Hover behavior only */
+.guided-gallery:hover .guided-item {
+    opacity: 0.25;
+}
+
+.guided-gallery:hover .guided-item:hover {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* Disable any leftover dim/active fighting */
+.guided-item.dim,
+.guided-item.active {
+    opacity: 1 !important;
+}
