@@ -5645,3 +5645,24 @@ footer img {
     margin-top: 9rem;
 }
 
+/* =========================================
+   Bigger social icons (Intro section)
+========================================= */
+
+.social-list {
+    display: flex;
+    gap: 1.5rem; /* space between icons */
+}
+
+.social-list a svg {
+    width: 40px;
+    height: 40px;
+    fill: var(--color-text-bold);
+    transition: transform 0.25s ease, fill 0.25s ease;
+}
+
+.social-list a:hover svg {
+    transform: scale(1.15);
+    fill: var(--color-bg-secondary);
+}
+.team-slider { position: relative; }
