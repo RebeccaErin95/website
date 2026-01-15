@@ -5519,3 +5519,12 @@ footer img {
 .guided-item.active {
     opacity: 1 !important;
 }
+/* Vendor tab visibility control */
+.vendor-grid {
+    display: none;
+}
+
+.vendor-grid.active {
+    display: grid;
+    gap: 2rem;
+}

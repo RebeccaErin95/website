@@ -760,3 +760,20 @@ function enableMenuPreviewLightbox() {
 
 // Run once after the page (and your previews) are ready
 window.addEventListener('load', enableMenuPreviewLightbox);
+
+const vendorTabs = document.querySelectorAll('.vendor-tab');
+const vendorGrids = document.querySelectorAll('.vendor-grid');
+
+vendorTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const targetId = tab.dataset.target;
+
+        // Reset all tabs & grids
+        vendorTabs.forEach(t => t.classList.remove('active'));
+        vendorGrids.forEach(grid => grid.classList.remove('active'));
+
+        // Activate selected tab & matching grid
+        tab.classList.add('active');
+        document.getElementById(targetId)?.classList.add('active');
+    });
+});
