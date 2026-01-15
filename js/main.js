@@ -777,3 +777,20 @@ vendorTabs.forEach(tab => {
         document.getElementById(targetId)?.classList.add('active');
     });
 });
+const teamSlider = function () {
+    const el = document.querySelector('.team-slider');
+    if (!el) return;
+
+    new Swiper(el, {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: false,
+        grabCursor: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        }
+    });
+};
+
+teamSlider();

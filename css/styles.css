@@ -5528,3 +5528,24 @@ footer img {
     display: grid;
     gap: 2rem;
 }
+.team-slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.team-slide {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.team-slide img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+.team-slider .swiper-button-prev,
+.team-slider .swiper-button-next {
+    top: 65%;
+    transform: translateY(-50%);
+}
