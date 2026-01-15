@@ -5666,3 +5666,49 @@ footer img {
     fill: var(--color-bg-secondary);
 }
 .team-slider { position: relative; }
+/* ==========================================
+   Header Phone + Socials (FINAL LOCKED-IN)
+   ========================================== */
+
+.header-contact--with-socials {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Social icons next to phone */
+.header-contact__socials {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* ICON SIZE = YELLOW DOT SIZE */
+.header-contact__socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 3rem; /* 🔥 MATCHES YOUR DOTS */
+    line-height: 2;
+
+    color: var(--color-bg-accent);
+    opacity: 0.95;
+    text-decoration: none;
+
+    transition: opacity 0.2s ease;
+}
+
+.header-contact__socials a:hover {
+    opacity: 1;
+}
+
+
+/* Phone CTA hover matches social accent color */
+.header-contact__num:hover,
+.header-contact__num:hover svg {
+    color: var(--color-bg-accent);
+}
+.header-contact__num {
+    transition: color 0.2s ease;
+}
