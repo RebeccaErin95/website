@@ -794,3 +794,27 @@ const teamSlider = function () {
 };
 
 teamSlider();
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    status.textContent = "Sending...";
+
+    emailjs.sendForm(
+      "service_jguspu1",
+      "template_5c5ktmq",
+      form
+    )
+    .then(() => {
+      status.textContent = "Message sent successfully!";
+      form.reset();
+    })
+    .catch((error) => {
+      status.textContent = "Failed to send message.";
+      console.error("EmailJS error:", error);
+    });
+  });
+});
