@@ -5546,6 +5546,102 @@ footer img {
 }
 .team-slider .swiper-button-prev,
 .team-slider .swiper-button-next {
-    top: 65%;
+    top: 78%;
     transform: translateY(-50%);
+    color: var(--color-bg-accent);
+    --swiper-theme-color: var(--color-bg-accent);
 }
+.team-slider .swiper-button-prev {
+    left: 15px;
+}
+
+.team-slider .swiper-button-next {
+    right: 15px;
+}
+
+
+@media screen and (max-width: 900px) {
+
+    .s-header__block {
+        position: relative;
+        min-height: 64px; /* ensures vertical centering reference */
+    }
+
+    .header-mobile-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+
+        padding: 0.6rem 1.2rem;
+        border-radius: 999px;
+
+        background-color: var(--color-bg-accent);
+        color: var(--color-white);
+        white-space: nowrap;
+
+        z-index: 1200;
+    }
+
+    .header-mobile-cta svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+/* =====================================
+   Contact Form – Mobile Optimization
+===================================== */
+@media (max-width: 600px) {
+
+  /* Grid spacing between fields */
+  #contact .contact-form .form-grid {
+    gap: 10px;
+  }
+
+  /* Label spacing */
+  #contact .contact-form label {
+    margin-bottom: 4px;
+  }
+
+  /* Uniform height for single-line fields */
+  #contact .contact-form input:not(textarea),
+  #contact .contact-form select {
+    height: 48px;
+    padding: 0 16px;
+    line-height: 48px;
+  }
+
+  /* Message field (intentionally taller) */
+  #contact .contact-form textarea {
+    min-height: 110px;
+    padding: 12px 16px;
+    line-height: 1.4;
+  }
+
+}
+
+/* =====================================
+   Ensure mobile CTA never shows on desktop
+===================================== */
+@media (min-width: 901px) {
+    .header-mobile-cta {
+        display: none !important;
+    }
+}
+/* =====================================
+   Extra space between Gallery & Testimonials
+===================================== */
+.s-testimonials {
+    margin-top: 9rem;
+}
+
